@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "emulator": "firebase emulators:start",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -15,7 +16,8 @@
     "@types/node": "18.15.11",
     "@types/react": "18.0.34",
     "@types/react-dom": "18.0.11",
-    "firebase-sdk": "^0.0.0",
+    "firebase": "^9.19.1",
+    "firebase-tools": "^11.26.0",
     "framer-motion": "^10.11.5",
     "next": "13.3.0",
     "react": "18.2.0",
