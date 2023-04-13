@@ -1,9 +1,9 @@
+import { MyInput } from "@/components/MyInput"
 import { useFluits } from "@/hooks/useFluits"
 import {
   Button,
   FormControl,
   FormLabel,
-  Input,
   UnorderedList,
   ListItem,
 } from "@chakra-ui/react"
@@ -31,7 +31,7 @@ export default function Home() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormControl>
           <FormLabel htmlFor="price">Price</FormLabel>
-          <Input
+          <MyInput
             id="price"
             placeholder="price"
             type="number"
