@@ -7,12 +7,12 @@ import {
   UnorderedList,
   ListItem,
 } from "@chakra-ui/react"
-import { useForm } from "react-hook-form"
+import { useForm, Controller } from "react-hook-form"
 
 export default function Home() {
   const { data, setParams, params, isLoading } = useFluits()
 
-  const { handleSubmit, register } = useForm<{ price: number }>({
+  const { handleSubmit, control, register } = useForm<{ price: number }>({
     defaultValues: {
       price: params,
     },
@@ -31,7 +31,23 @@ export default function Home() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormControl>
           <FormLabel htmlFor="price">Price</FormLabel>
-          <MyInput
+          <Controller
+            control={ control }
+            name="price"
+            render={
+              ({field: { onChange, value}}) => 
+              <MyInput
+                value={ value }
+                id="price"
+                placeholder="price"
+                type="number"
+                min={0}
+                max={300}
+                onChange={ (e) => onChange(Number(e.target.value))}
+              />
+            }
+          />
+          {/* <MyInputForwardRef
             id="price"
             placeholder="price"
             type="number"
@@ -42,7 +58,7 @@ export default function Home() {
               max: { value: 300, message: "max 300" },
               valueAsNumber: true,
             })}
-          />
+          /> */}
           <Button type="submit">submit</Button>
         </FormControl>
       </form>
